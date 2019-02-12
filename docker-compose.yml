@@ -1,0 +1,27 @@
+version: "3"
+
+volumes:
+  pgsql-data:
+    driver: local
+
+services:
+  pgsql:
+    image: postgres:10.3
+    container_name: pgsql-api
+    volumes:
+      - pgsql-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=sandbox
+      - POSTGRES_DB=sandbox
+      - POSTGRES_USER=sandbox
+  app:
+    image: ambientum/php:7.1-nginx
+    container_name: app-api
+    volumes:
+      - .:/var/www/app
+    ports:
+      - 80:8080
+    links:
+      - pgsql
