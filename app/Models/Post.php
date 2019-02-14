@@ -22,7 +22,6 @@ class Post extends Model
         // When is creating an new Post is set this data automatic
         static::creating(function ($model) {
             $model->post_name = str_slug($model->post_title);
-            $model->user_id = auth()->id();
         });
     }
 
