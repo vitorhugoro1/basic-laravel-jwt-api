@@ -81,6 +81,12 @@ class PostTest extends TestCase
 
         $data = $response->decodeResponseJson();
 
-        $response->assertStatus(401);
+        $response->assertStatus(403);
+        $response->assertJsonStructure([
+            'message',
+        ]);
+        $response->assertJson([
+            'message' => 'This action is unauthorized.',
+        ]);
     }
 }
