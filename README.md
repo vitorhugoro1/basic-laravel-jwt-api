@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.com/vitorhugoro1/basic-laravel-jwt-api.svg?branch=master)](https://travis-ci.com/vitorhugoro1/basic-laravel-jwt-api)
 # Basic Laravel JWT API
 
 This is an basic Laravel project, with capabilities like JWT (Json Web Token) using [tymondesigns/jwt-auth](https://github.com/tymondesigns/jwt-auth) lib to control this.
