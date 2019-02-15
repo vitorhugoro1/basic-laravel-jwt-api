@@ -43,7 +43,7 @@ class PostTest extends TestCase
 
         $response = $this->withHeader('Authorization', "Bearer {$this->jwtKey}")
             ->json('PUT', route('posts.update', $post->id), [
-                'post_title' => $this->faker->title,
+                'post_title' => $this->faker->text,
                 'content' => $this->faker->realText(),
             ]);
 
@@ -66,6 +66,7 @@ class PostTest extends TestCase
 
         $this->assertNotEquals($post->post_title, $data['data']['post_title']);
         $this->assertNotEquals($post->content, $data['data']['content']);
+        $this->assertEquals($post->post_name, $data['data']['post_name']);
         $this->assertEquals($post->id, $data['data']['id']);
     }
 
