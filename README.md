@@ -24,7 +24,7 @@ docker-compose exec app php artisan migrate
 To run tests:
 
 ```bash
-docker-compose exec app .\vendor\bin\phpunit
+docker-compose exec app ./vendor/bin/phpunit
 ```
 
 To stop:
